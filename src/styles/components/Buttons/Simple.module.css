@@ -1,0 +1,22 @@
+.button {
+  border: none;
+  display: flex;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 16px;
+  color: rgb(107, 107, 107);
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none !important;
+  background-color: rgba(66, 180, 0, 0.281);
+  border: 1px solid rgba(66, 180, 0, 0.082);
+  transition: color 0.5s, border 0.7s, background-color 0.8s;
+}
+
+.button:hover {
+  border: none;
+  color: whitesmoke;
+  box-shadow: none !important;
+  background-color: rgb(66, 180, 0);
+}
