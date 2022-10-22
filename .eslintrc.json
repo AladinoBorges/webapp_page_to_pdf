@@ -4,7 +4,6 @@
     "es2021": true,
     "node": true
   },
-
   "extends": [
     "airbnb",
     "next/babel",
@@ -13,17 +12,7 @@
     "plugin:prettier/recommended",
     "plugin:@next/next/recommended"
   ],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": ["."],
-        "extensions": [".js", ".jsx", ".ts", ".d.ts", ".tsx"]
-      }
-    }
-  },
-
   "plugins": ["react", "react-hooks", "prettier"],
-
   "rules": {
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "import/extensions": [
