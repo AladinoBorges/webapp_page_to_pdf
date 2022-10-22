@@ -1,4 +1,5 @@
 import Head from "next/head";
+import GoBackButton from "../../components/Buttons/GoBack";
 import RegisterForm from "../../components/Forms/Register";
 import styles from "../../styles/Registration.module.css";
 
@@ -26,6 +27,8 @@ const RegistrationPage = () => {
       </Head>
 
       <main className={styles.main}>
+        <GoBackButton />
+
         <h1 className={styles.title}>Registro Admissional</h1>
 
         <RegisterForm submitHandler={handleSubmit} />
