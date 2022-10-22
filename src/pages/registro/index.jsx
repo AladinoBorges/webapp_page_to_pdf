@@ -4,14 +4,14 @@ import styles from "../../styles/Registration.module.css";
 
 const RegistrationPage = () => {
   const handleSubmit = (data) => {
-    const trimmedData = data.map((item) => {
-      const itemForTrimming = typeof item === "string";
+    const trimmedData = Object.entries(data).map((item) => {
+      const itemForTrimming = typeof item[1] === "string";
 
       if (itemForTrimming) {
-        return item.trim();
+        return { [item[0]]: item[1].replace(/\s+/g, " ") };
       }
 
-      return item;
+      return { [item[0]]: item[1] };
     });
 
     return console.log(trimmedData);
