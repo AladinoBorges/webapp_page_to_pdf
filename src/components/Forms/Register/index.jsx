@@ -16,7 +16,7 @@ const RegisterForm = ({ submitHandler }) => {
   };
 
   return (
-    <form onSubmit={() => submitHandler(form)} className={styles.form}>
+    <form className={styles.form}>
       <div className={styles.borderedHorizontalStack}>
         <h2 className={styles.subtitle}>Dados pessoais</h2>
 
@@ -267,7 +267,7 @@ const RegisterForm = ({ submitHandler }) => {
         </div>
       </div>
 
-      <SimpleButton type="submit" text="Registrar" />
+      <SimpleButton handler={() => submitHandler(form)} type="button" text="Registrar" />
     </form>
   );
 };
