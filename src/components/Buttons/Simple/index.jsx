@@ -1,8 +1,8 @@
 import styles from "../../../styles/components/Buttons/Simple.module.css";
 
-const SimpleButton = ({ type, text }) => {
+const SimpleButton = ({ type, text, handler }) => {
   return (
-    <button className={styles.button} type={type}>
+    <button onClick={handler} className={styles.button} type={type}>
       {text}
     </button>
   );
