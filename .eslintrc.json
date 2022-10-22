@@ -1,3 +1,40 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+
+  "extends": [
+    "airbnb",
+    "next/babel",
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@next/next/recommended"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["."],
+        "extensions": [".js", ".jsx", ".ts", ".d.ts", ".tsx"]
+      }
+    }
+  },
+
+  "plugins": ["react", "react-hooks", "prettier"],
+
+  "rules": {
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  }
 }
