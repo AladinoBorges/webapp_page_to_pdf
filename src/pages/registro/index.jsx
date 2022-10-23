@@ -1,10 +1,13 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import GoBackButton from "../../components/Buttons/GoBack";
 import RegisterForm from "../../components/Forms/Register";
 import styles from "../../styles/Registration.module.css";
 
 const RegistrationPage = () => {
   const handleSubmit = (data) => {
+    const router = useRouter();
+
     const trimmedData = Object.entries(data).map((item) => {
       const itemForTrimming = typeof item[1] === "string";
 
@@ -15,7 +18,9 @@ const RegistrationPage = () => {
       return { [item[0]]: item[1] };
     });
 
-    return console.log(trimmedData);
+    console.log(trimmedData);
+
+    return router.push(`/consultar/${1}`);
   };
 
   return (
