@@ -15,18 +15,18 @@ const randomData = (size = 30) => {
     return ({
       'documento': {
         'id': index + 1,
-        'codigo_cliente': `REG-RH-${index + 1 < 10 ? `0${index + 1}` : index + 1}`,
-        'data_elaboracao': newDate.toLocaleString('pt-BR'),
+        'codigo_cliente': `REG-RH-${generateRandomNumber(1000)}`,
+        'data_elaboracao': newDate.toLocaleString('pt-BR').split(" ")[0],
         'elaborado_por': 'RH',
-        'numero_revisao': `${index + 1 < 10 ? `0${index + 1}` : index + 1}`,
-        'data_ultima_revisao': newDate.toLocaleString('pt-BR'),
+        'numero_revisao': generateRandomNumber(13),
+        'data_ultima_revisao': newDate.toLocaleString('pt-BR').split(" ")[0],
         'aprovado_por': 'Nome da pessoa que aprovou',
-        'titulo': `Dado aleatório ${index + 100}`
+        'titulo': `Dado aleatório ${generateRandomNumber(1000)}`
       },
       'cliente': {
         'servico': {
           'numero_curriculo': `${index + 1 < 10 ? `0${index + 1}` : index + 1}`,
-          'admissao': newDate.toLocaleString('pt-BR'),
+          'admissao': newDate.toLocaleString('pt-BR').split(" ")[0],
           'integracao': 'Dado aleatório',
           'atendimento': 'Pessoa aleatória',
         },

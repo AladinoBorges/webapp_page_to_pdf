@@ -39,7 +39,7 @@ const SearchChecklistClientsByIdPage = ({ id, token }) => {
 
               <div>
                 <p>Data de Elaboração</p>
-                <p>{data.documento.data_elaboracao.split(" ")[0]}</p>
+                <p>{data.documento.data_elaboracao}</p>
               </div>
 
               <div>
