@@ -5,9 +5,9 @@ import RegisterForm from "../../components/Forms/Register";
 import styles from "../../styles/Registration.module.css";
 
 const RegistrationPage = () => {
-  const handleSubmit = (data) => {
-    const router = useRouter();
+  const router = useRouter();
 
+  const handleSubmit = (data) => {
     const trimmedData = Object.entries(data).map((item) => {
       const itemForTrimming = typeof item[1] === "string";
 

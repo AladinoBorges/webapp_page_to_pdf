@@ -1,6 +1,7 @@
+import axios from "axios";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import GoBackButton from "../../../components/Buttons/GoBack";
+import SimpleButton from "../../../components/Buttons/Simple";
 import { randomData } from "../../../helpers/data/generate";
 import styles from "../../../styles/Search.module.css";
 
@@ -14,6 +15,34 @@ const SearchChecklistClientsByIdPage = ({ id, token }) => {
     setData(queryResult);
   }, []);
 
+  const getPDF = async (apiURL, htmlUrl) => {
+    const pdfFile = await axios.get(apiURL, {
+      params: { url: htmlUrl, id },
+      responseType: "arraybuffer",
+      headers: {
+        Accept: "application/pdf"
+      }
+    });
+
+    return pdfFile;
+  };
+
+  const handlePagePrintTrigger = async () => {
+    const url = `http://localhost:3000/consultar/${id}`;
+    const apiUrl = "/api/html-to-pdf";
+
+    await getPDF(apiUrl, url)
+      .then((response) => {
+        const blob = new Blob([response.data], { type: "application/pdf" });
+
+        const link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = `documento_${id}.pdf`;
+        link.click();
+      })
+      .catch((error) => console.error("Erro ao criar o arquivo pdf: ", error));
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,8 +50,6 @@ const SearchChecklistClientsByIdPage = ({ id, token }) => {
         <meta name="description" content="página de pesquisa de documentos" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <GoBackButton />
 
       <div className={styles.main}>
         {data && (
@@ -69,6 +96,8 @@ const SearchChecklistClientsByIdPage = ({ id, token }) => {
             </div>
           </div>
         )}
+
+        <SimpleButton type="button" text="Baixar documento" handler={handlePagePrintTrigger} />
       </div>
     </div>
   );
