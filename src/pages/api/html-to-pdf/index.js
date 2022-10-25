@@ -9,10 +9,10 @@ const generatePdf = async (url, id) => {
   /* await newPage.emulateMediaType('screen'); */
 
   const pdfFile = await newPage.pdf({
-    /*     path: `/public/pdf/documento${1}.pdf`, */
-    pageRanges: "1",
+    /* path: `/public/pdf/documento${1}.pdf`,
+    pageRanges: "1-10", */
     format: 'a4',
-    printBackground: true
+    printBackground: false,
   });
 
   await browserSession.close();

@@ -27,6 +27,8 @@ const SearchChecklistClientsByIdPage = ({ id, token }) => {
     return pdfFile;
   };
 
+  console.log("Dados formulário:", data);
+
   const handlePagePrintTrigger = async () => {
     const url = `http://localhost:3000/consultar/${id}`;
     const apiUrl = "/api/html-to-pdf";
@@ -61,37 +63,98 @@ const SearchChecklistClientsByIdPage = ({ id, token }) => {
             <div className={styles.documentHeading}>
               <div>
                 <p>Código</p>
+
+                <hr />
+
                 <p>{data.documento.codigo_cliente}</p>
               </div>
 
               <div>
                 <p>Data de Elaboração</p>
+
+                <hr />
+
                 <p>{data.documento.data_elaboracao}</p>
               </div>
 
               <div>
                 <p>Elaborado por</p>
+
+                <hr />
+
                 <p>{data.documento.elaborado_por}</p>
               </div>
 
               <div>
                 <p>Nº da Revisão</p>
+
+                <hr />
+
                 <p>{data.documento.numero_revisao}</p>
               </div>
 
               <div>
                 <p>Data da Última Revisão</p>
+
+                <hr />
+
                 <p>{data.documento.data_ultima_revisao}</p>
               </div>
 
               <div>
                 <p>Aprovado por</p>
+
+                <hr />
+
                 <p>{data.documento.aprovado_por}</p>
               </div>
 
-              <div>
-                <p>Título</p>
+              <div className={styles.horizontalStack}>
+                <p className={styles.textWithPaddingLeft}>Título:</p>
+
                 <p>{data.documento.titulo}</p>
+              </div>
+            </div>
+
+            <div className={styles.registrationData}>
+              <div>
+                <p>Nome:</p>
+                <p>{data.cliente.dados_pessoais.nome}</p>
+              </div>
+
+              <div>
+                <p>RE/MAT.:</p>
+                <p>{data.cliente.dados_pessoais.re_mat}</p>
+              </div>
+
+              <div>
+                <p>Função:</p>
+                <p>{data.cliente.dados_pessoais.funcao}</p>
+              </div>
+
+              <div>
+                <p>Horário: </p>
+                <p>{data.cliente.dados_pessoais.horario}</p>
+              </div>
+
+              <div>
+                <p>Escala: </p>
+                <p>{data.cliente.dados_pessoais.escala}</p>
+              </div>
+
+              <div>
+                <p>Contrato: </p>
+                <p>{data.cliente.dados_pessoais.contrato}</p>
+              </div>
+            </div>
+
+            <div className={styles.attachments}>
+              <div>
+                <img src="/cpf_front.jpg" />
+              </div>
+
+              <div>
+                <img src="/cpf.jpg" />
               </div>
             </div>
           </div>
